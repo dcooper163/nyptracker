@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div>This is the home page!</div>
+
+<div>
+    {% for ticket in tickets %}
+    <div class="ticketname">
+        <a href="{% url 'ticket.detail' ticket.number ">
+            <h3>{{ ticket.number}}</h3>
+        </a>
+        
+            <button type="button" class="btn btn-primary">Primary</button>
+        
+    </div>
+    {% endfor %}
+</div>
+
+
+{% endblock %}
