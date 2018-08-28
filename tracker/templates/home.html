@@ -7,10 +7,21 @@
     {% for ticket in tickets %}
     <div class="ticketname">
         <a href="{% url 'ticket.detail' ticket.number ">
-            <h3>{{ ticket.number}}</h3>
+            <h3>{{ ticket.number}}</h3> 
+            
+            
+            <h5>{{ ticket.assigned}}</h5>
+            
+            
+
         </a>
-        
-            <button type="button" class="btn btn-primary">Primary</button>
+        {% if ticket.status %}
+            <button type="button" class="btn btn-warning">{{ ticket.status}}</button>
+        {% elif ticket.status == "Same Day" %}    
+        <button type="button" class="btn btn-primary">{{ ticket.status}}</button>
+        {% elif ticket.status == "" %}           
+             <button type="button" class="btn btn-success">2 Days</button>  
+        {% endif %}
         
     </div>
     {% endfor %}
@@ -18,3 +29,14 @@
 
 
 {% endblock %}
+
+
+ {# my_if a == 0 #}
+<!--    a == 0  -->
+  {# elif a == 1  #}
+<!--    a == 1  -->
+  {# elif a == 2  #%}
+<!--    a == 2  -->
+  {# else #}
+<!--    a not in [0, 1, 2]  -->
+  {# endif #}
